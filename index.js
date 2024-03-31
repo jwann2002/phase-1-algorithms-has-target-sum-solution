@@ -1,7 +1,19 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
-}
+  const seenNumbers = new Set(); // initialize an empty Set
+  for (const number of array) {
+    const complement = target - number;
 
+    // .has returns true if the Set includes the complement
+    if (seenNumbers.has(complement)) return true;
+
+    // .add adds the number to the Set
+    seenNumbers.add(number);
+  }
+  return false;
+}
+console.log(hasTargetSum([3, 8, 12, 4, 11, 7], 10)); // true
+console.log(hasTargetSum([22, 19, 4, 6, 30], 25));   // true
+console.log(hasTargetSum([1, 2, 5], 4)); 
 /* 
   Write the Big O time complexity of your function here
 */
